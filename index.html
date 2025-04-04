@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>定位展示知识点视图</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main {
+            position: relative;
+            width: 900px;
+            height: 700px;
+            background-color: #ffff7f;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .photo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 200px;
+            width: 300px; /* Adjusted size */
+            height: 240px; /* Adjusted size */
+            z-index: 2;
+        }
+
+        .kon {
+            position: absolute;
+            width: 240px;
+            background: #ffffff;
+            padding: 20px;
+            z-index: 1;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .box1 {
+            left:190px;
+            top: 60px; 
+        }
+
+        .box2 {
+            left: 140px;
+            top: 340px; 
+        }
+
+        .box3 {
+            left: 510px;
+            bottom: 120px; 
+        }
+
+        h3 {
+            color: #0066cc;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .active {
+            z-index: 3;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="photo">
+            <img src="1.png" width="300px" height="240px">
+        </div>
+        <div class="kon box1" onclick="toggleActive(this)">
+            <h3>HTML基础和HTML5</h3>
+            <ul>
+                <li>HTML5标签与属性</li>
+                <li>HTML5多媒体属性(视频和音频)</li>
+                <li>HTML5图像标签(画布与SVG)</li>
+                <li>HTML5地理定位</li>
+                <li>HTML5表单</li>
+            </ul>
+        </div>
+        <div class="kon box2" onclick="toggleActive(this)">
+            <h3>CSS基础和CSS3</h3>
+            <ul>
+                <li>CSS选择器</li>
+                <li>CSS样式</li>
+                <li>CSS盒模型与定位</li>
+                <li>CSS3的2D与3D转换</li>
+                <li>CSS3的过渡与动画</li>
+                <li>CSS3新的边框样式</li>
+            </ul>
+        </div>
+        <div class="kon box3" onclick="toggleActive(this)">
+            <h3>JavaScript</h3>
+            <ul>
+                <li>数据结构</li>
+                <li>运算符</li>
+                <li>基础语法</li>
+                <li>BOM对象</li>
+                <li>JS特效</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleActive(element) {
+            // Remove active class from all elements
+            const allElements = document.querySelectorAll('.kon');
+            allElements.forEach(el => el.classList.remove('active'));
+
+            // Add active class to the clicked element
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
